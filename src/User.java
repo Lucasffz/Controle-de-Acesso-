@@ -3,15 +3,13 @@ public abstract class User  {
 	String matricula;
 	String curso;
 	Laboratorio laboratorio;
-	boolean superuser;
 	String senha;
 
-	User(String nome,String matricula,String curso, Laboratorio laboratorio,boolean superuser,String senha){
+	User(String nome,String matricula,String curso, Laboratorio laboratorio,String senha){
 		this.nome = nome;
 		this.matricula = matricula;
 		this.curso = curso;
 		this.laboratorio = laboratorio;
-		this.superuser = superuser;
 		this.senha = senha;
 	}
 	

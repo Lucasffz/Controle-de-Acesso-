@@ -2,6 +2,7 @@
 public class Laboratorio {
 	String nome;
 	User[] usuarios;
+	User coordenador;
 	
 	
 	public String getNome() {
@@ -16,7 +17,13 @@ public class Laboratorio {
 	public void setUsuarios(User[] usuarios) {
 		this.usuarios = usuarios;
 	}
+	public User getCoordenador() {
+		return coordenador;
+	}
 	
+	public void setCoordenador(User coordenador) {
+		this.coordenador = coordenador;
+	}
 	
 
 }
