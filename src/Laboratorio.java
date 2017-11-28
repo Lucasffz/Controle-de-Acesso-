@@ -1,8 +1,8 @@
 
 public class Laboratorio {
-	String nome;
-	User[] usuarios;
-	User coordenador;
+	private String nome;
+	private User[] usuarios;
+	private User coordenador;
 	
 	Laboratorio(String nome,User coordenador){
 		this.nome = nome;

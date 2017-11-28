@@ -1,9 +1,9 @@
 public abstract class User  {
-	String nome;
-	String matricula;
-	String curso;
-	Laboratorio laboratorio;
-	String senha;
+	protected String nome;
+	protected String matricula;
+	protected String curso;
+	protected Laboratorio laboratorio;
+	protected String senha;
 
 	User(String nome,String matricula,String curso, Laboratorio laboratorio,String senha){
 		this.nome = nome;
@@ -41,6 +41,14 @@ public abstract class User  {
 	}
 	public void setLaboratorio(Laboratorio laboratorio) {
 		this.laboratorio = laboratorio;
+	}
+
+	public String getSenha() {
+		return senha;
+	}
+
+	public void setSenha(String senha) {
+		this.senha = senha;
 	}
 	
 	
