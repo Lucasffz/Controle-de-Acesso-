@@ -1,7 +1,12 @@
 
 public class Controle {
-		
+		private UsuarioPadrao padrao;
 	
+		Controle(UsuarioPadrao padrao){
+			this.padrao = padrao;
+		}
+		
+		
 	boolean acessar(String matricula, String chave, Laboratorio lab) {
 		boolean saida = false;
 		
@@ -35,6 +40,14 @@ public class Controle {
 		Laboratorio lab = new Laboratorio(nome,coordenador);
 		return lab;
 		
+	}
+	
+	boolean verificarChave(String senha) {
+		if(senha.equals(padrao.getSenha()) ){
+			return true;
+		}
+				
+		return false;
 	}
 	
 	
