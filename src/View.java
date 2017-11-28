@@ -25,6 +25,7 @@ public class View {
 		switch(op) {
 		case 1:
 			boolean acesso = false;
+			int chances = 0;
 			while(!acesso) {
 				System.out.println("Digite a senha de usuário padrão: ");
 				String senha = input.next();
@@ -33,11 +34,18 @@ public class View {
 				if(acesso)
 					System.out.println("Acesso liberado.");
 				else {
+					chances++;
 					System.out.println("senha incorreta.");
 					System.out.println("Acesso negado.");
 				}
+				if(chances == 3) {
+					System.out.println("Você chegou a limite de tentativa de acessos.");
+					break;
+				}
 			}
-			
+			if(chances == 3) {
+				break;
+			}
 			
 			String nome;
 			System.out.println("Digite o nome do laboratório: ");
@@ -49,6 +57,7 @@ public class View {
 			
 			Laboratorio lab;
 			lab = controle.cadastrarLaboratorio(nome, null);
+			
 		}
 		
 		

@@ -1,7 +1,10 @@
+import java.util.ArrayList;
 
 public class Controle {
 		private UsuarioPadrao padrao;
-	
+		private ArrayList<Laboratorio> laboratorios =  new ArrayList<Laboratorio>();
+		
+		
 		Controle(UsuarioPadrao padrao){
 			this.padrao = padrao;
 		}
