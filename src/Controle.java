@@ -31,6 +31,17 @@ public class Controle {
 	return false;
 	}
 	
+	Laboratorio cadastrarLaboratorio(String nome, User coordenador) {
+		Laboratorio lab = new Laboratorio(nome,coordenador);
+		return lab;
+		
+	}
+	
+	
+	
+	
+	
+	
 	
 	
 	

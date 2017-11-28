@@ -13,6 +13,10 @@ public abstract class User  {
 		this.senha = senha;
 	}
 	
+	User(){
+		
+	}
+	
 	
 	public String getNome() {
 		return nome;
@@ -38,24 +42,6 @@ public abstract class User  {
 	public void setLaboratorio(Laboratorio laboratorio) {
 		this.laboratorio = laboratorio;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	
 	

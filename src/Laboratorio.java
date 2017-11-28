@@ -4,6 +4,11 @@ public class Laboratorio {
 	User[] usuarios;
 	User coordenador;
 	
+	Laboratorio(String nome,User coordenador){
+		this.nome = nome;
+		this.coordenador = coordenador;
+	}
+	
 	
 	public String getNome() {
 		return nome;
