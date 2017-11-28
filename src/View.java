@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 
@@ -16,11 +17,12 @@ public class View {
 		padrao.setSenha(keyp);
 		
 		Controle controle = new Controle(padrao);
-		
-		space();
-		menu();
-		
 		int op;
+		
+		while(true) {
+		menu();
+		space();
+		
 		op = input.nextInt();
 		switch(op) {
 		case 1:
@@ -39,7 +41,7 @@ public class View {
 					System.out.println("Acesso negado.");
 				}
 				if(chances == 3) {
-					System.out.println("Você chegou a limite de tentativa de acessos.");
+					System.out.println("Você chegou ao limite de tentativa de acessos.");
 					break;
 				}
 			}
@@ -49,20 +51,22 @@ public class View {
 			
 			String nome;
 			System.out.println("Digite o nome do laboratório: ");
-			nome = input.nextLine();
-			System.out.println("Digite o Coordenador do laborátorio.");
-			
-			
-			
+			nome = input.next();
 			
 			Laboratorio lab;
 			lab = controle.cadastrarLaboratorio(nome, null);
+			controle.adicionarLaboratorio(lab);
+			System.out.println("Laboratório cadastrado com sucesso.");
+			break;
 			
+		case 2:
+			System.out.println("gg izi");
+			break;
 		}
 		
 		
 		
-		
+		}
 		
 		
 		
@@ -73,6 +77,7 @@ public class View {
 	static void menu() {
 		System.out.println("Digite sua operação.");
 		System.out.println("1 - Cadastrar um laboratório. ");
+		System.out.println("2 - Mostra laboratórios. ");
 		System.out.println("2 - Cadastrar Usuário em um laboratório. ");
 		System.out.println("3 - listar usuários de um laboratório.  ");
 		

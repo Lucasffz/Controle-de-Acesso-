@@ -53,11 +53,15 @@ public class Controle {
 		return false;
 	}
 	
+	void adicionarLaboratorio(Laboratorio lab) {
+		laboratorios.add(lab);
+	}
 	
 	
 	
-	
-	
+	 ArrayList<Laboratorio> retornarLaboratorios(){
+		return laboratorios;
+	}
 	
 	
 	
