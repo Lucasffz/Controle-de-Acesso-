@@ -6,15 +6,15 @@ public class View {
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
 		
-		UsuarioPadrao padrao = new UsuarioPadrao ();
+		administrador padrao = new administrador();
 		
 		System.out.println("Criar usuário padrão: ");
 		System.out.println("Digite o nome do usuário padrão: ");
 		String namep = input.next();
 		padrao.setNome(namep);
 		System.out.println("Digite a senha do usuário padão: ");
-		String keyp = input.next();
-		padrao.setSenha(keyp);
+		String chavep = input.next();
+		padrao.setSenha(chavep);
 		
 		Controle controle = new Controle(padrao);
 		int op;

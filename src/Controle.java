@@ -1,11 +1,11 @@
 import java.util.ArrayList;
 
 public class Controle {
-		private UsuarioPadrao padrao;
+		private administrador padrao;
 		private ArrayList<Laboratorio> laboratorios =  new ArrayList<Laboratorio>();
 		
 		
-		Controle(UsuarioPadrao padrao){
+		Controle(administrador padrao){
 			this.padrao = padrao;
 		}
 		
@@ -23,15 +23,15 @@ public class Controle {
 		return saida;
 	}
 	
-	User cadastrarUsuario(String nome,String matricula,String curso, Laboratorio laboratorio,String senha) {
-		User usuario = new Aluno(nome,matricula,curso,laboratorio,senha);
+	Usuario cadastrarUsuario(String nome,String matricula,String curso, Laboratorio laboratorio,String senha) {
+		Usuario usuario = new Aluno(nome,matricula,curso,laboratorio,senha);
 		
 		
 		return usuario;
 	}
 	
 	
-	boolean verficarCoordenador(User coordenador,Laboratorio lab) {
+	boolean verficarCoordenador(Usuario coordenador,Laboratorio lab) {
 		if(lab.getCoordenador() == coordenador) 
 			return true;
 		
@@ -39,7 +39,7 @@ public class Controle {
 	return false;
 	}
 	
-	Laboratorio cadastrarLaboratorio(String nome, User coordenador) {
+	Laboratorio cadastrarLaboratorio(String nome, Usuario coordenador) {
 		Laboratorio lab = new Laboratorio(nome,coordenador);
 		return lab;
 		

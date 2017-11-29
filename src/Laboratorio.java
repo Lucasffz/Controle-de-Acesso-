@@ -1,10 +1,11 @@
+import java.util.ArrayList;
 
 public class Laboratorio {
 	private String nome;
-	private User[] usuarios;
-	private User coordenador;
+	private Usuario[] usuarios;
+	private Usuario coordenador;
 	
-	Laboratorio(String nome,User coordenador){
+	Laboratorio(String nome,Usuario coordenador){
 		this.nome = nome;
 		this.coordenador = coordenador;
 	}
@@ -16,19 +17,19 @@ public class Laboratorio {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public User[] getUsuarios() {
+	public Usuario[] getUsuarios() {
 		return usuarios;
 	}
-	public void setUsuarios(User[] usuarios) {
+	public void setUsuarios(Usuario[] usuarios) {
 		this.usuarios = usuarios;
 	}
-	public User getCoordenador() {
+	public Usuario getCoordenador() {
 		return coordenador;
 	}
 	
-	public void setCoordenador(User coordenador) {
+	public void setCoordenador(Usuario coordenador) {
 		this.coordenador = coordenador;
 	}
-	
+	 
 
 }
