@@ -4,6 +4,7 @@ public abstract class Usuario  {
 	protected String curso;
 	protected Laboratorio laboratorio;
 	protected String senha;
+	protected boolean administrador;
 
 	Usuario(String nome,String matricula,String curso, Laboratorio laboratorio,String senha){
 		this.nome = nome;

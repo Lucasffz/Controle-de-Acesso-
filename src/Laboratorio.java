@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class Laboratorio {
 	private String nome;
-	private Usuario[] usuarios;
+	private ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
 	private Usuario coordenador;
 	
 	Laboratorio(String nome,Usuario coordenador){
@@ -17,12 +17,16 @@ public class Laboratorio {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public Usuario[] getUsuarios() {
+	public ArrayList<Usuario> getUsuarios() {
 		return usuarios;
 	}
-	public void setUsuarios(Usuario[] usuarios) {
-		this.usuarios = usuarios;
+	
+	public void adicionarUsuario(Usuario usuario) {
+		usuarios.add(usuario);
 	}
+	
+	
+	
 	public Usuario getCoordenador() {
 		return coordenador;
 	}

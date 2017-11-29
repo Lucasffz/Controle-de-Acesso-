@@ -1,10 +1,10 @@
 
-public class administrador extends Usuario {
+public class Administrador extends Usuario {
 	
 	
 	
 	
-		administrador(){
+		Administrador(){
 			super();
 		}
 }

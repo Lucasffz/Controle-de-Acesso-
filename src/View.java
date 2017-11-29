@@ -6,7 +6,7 @@ public class View {
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
 		
-		administrador padrao = new administrador();
+		Administrador padrao = new Administrador();
 		
 		System.out.println("Criar usuário padrão: ");
 		System.out.println("Digite o nome do usuário padrão: ");
@@ -57,6 +57,26 @@ public class View {
 			lab = controle.cadastrarLaboratorio(nome, null);
 			controle.adicionarLaboratorio(lab);
 			System.out.println("Laboratório cadastrado com sucesso.");
+			
+			space();			
+			
+			System.out.println("1 - Deseja cadastrar novo usuário coordenador.");
+				System.out.println("2 -adicionar a coordenação a um usuário existente?");	
+			String op2 = input.next();
+			if(op ==1) {
+				System.out.println("Nome:");
+				String nomeu = input.next();
+				System.out.println("Matrícula:");
+				String matriculau = input.next();
+				System.out.println("Curso:");
+				String cursou = input.next();
+				System.out.println("senha:");
+				String senhau = input.next();
+				Usuario prof = controle.criarUsuarioProfessor(nomeu, matriculau, cursou, lab, senhau);
+				
+				
+			}
+			
 			break;
 			
 		case 2:
