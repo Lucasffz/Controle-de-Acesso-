@@ -54,7 +54,7 @@ public class View {
 			nome = input.next();
 			
 			Laboratorio lab;
-			lab = controle.cadastrarLaboratorio(nome, null);
+			lab = controle.cadastrarLaboratorio(nome);
 			controle.adicionarLaboratorio(lab);
 			System.out.println("Laboratório cadastrado com sucesso.");
 			
@@ -73,14 +73,29 @@ public class View {
 				System.out.println("senha:");
 				String senhau = input.next();
 				Usuario prof = controle.criarUsuarioProfessor(nomeu, matriculau, cursou, lab, senhau);
-				
-				
+				controle.adicionarCoordenadordeLaboratorio(prof, lab);
 			}
+			
+			/* eu criei um ArrayList do tipo Usuario, as classes Professor e Aluno extend de Usuario, quando eu crio um ArrayList do tipo Usuario
+				 e depois intancio um classe 'Usuario p = new Professor()' os métodos específicos da classe professor não são visiveis, 
+				 sabe como eu posso contar isso, pra ter um único ArrayList com alunos e professores e usar seus métodos espcíficos???
+				  */
+			
+			
+			
+			
+			/*System.out.println(lab.getNome());
+			System.out.println(lab.getCoordenador().getNome());
+			System.out.println(lab.);*/
+			
 			
 			break;
 			
 		case 2:
-			System.out.println("gg izi");
+			for (int k = 0; k < controle.retornarLaboratorios().size(); k++) {
+				System.out.println(controle.retornarLaboratorios().get(k).getNome());
+				System.out.println("-----------------");
+			}
 			break;
 		}
 		
@@ -97,7 +112,7 @@ public class View {
 	static void menu() {
 		System.out.println("Digite sua operação.");
 		System.out.println("1 - Cadastrar um laboratório. ");
-		System.out.println("2 - Mostra laboratórios. ");
+		System.out.println("2 - Mostrar laboratórios. ");
 		System.out.println("2 - Cadastrar Usuário em um laboratório. ");
 		System.out.println("3 - listar usuários de um laboratório.  ");
 		

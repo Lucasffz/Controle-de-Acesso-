@@ -10,7 +10,7 @@ public class Controle {
 		}
 		
 		
-	boolean acessar(String matricula, String chave, Laboratorio lab) {
+	public boolean acessar(String matricula, String chave, Laboratorio lab) {
 		boolean saida = false;
 		
 		
@@ -23,7 +23,7 @@ public class Controle {
 		return saida;
 	}
 	
-	Usuario criarUsuarioAluno(String nome,String matricula,String curso, Laboratorio laboratorio,String senha) {
+	public Usuario criarUsuarioAluno(String nome,String matricula,String curso, Laboratorio laboratorio,String senha) {
 		Usuario usuario = new Aluno(nome,matricula,curso,laboratorio,senha);
 		
 		
@@ -32,7 +32,7 @@ public class Controle {
 	
 	
 	
-	Usuario criarUsuarioProfessor(String nome,String matricula,String curso, Laboratorio laboratorio,String senha) {
+	public Usuario criarUsuarioProfessor(String nome,String matricula,String curso, Laboratorio laboratorio,String senha) {
 		Usuario usuario = new Professor(nome,matricula,curso,laboratorio,senha);
 		
 		
@@ -40,7 +40,7 @@ public class Controle {
 		return usuario;
 	}
 	
-	boolean cadastrarUsuario(Usuario usuario,Laboratorio lab) {
+	public boolean cadastrarUsuario(Usuario usuario,Laboratorio lab) {
 		for(int i =0;i<lab.getUsuarios().size();i++) {
 			if(lab.getUsuarios().get(i) == usuario)
 				return false;
@@ -52,13 +52,13 @@ public class Controle {
 		return true;
 	}
 	
-	void adicionarCoordenadordeLaboratorio(Professor coordenador,Laboratorio lab) {
+	public void adicionarCoordenadordeLaboratorio(Usuario coordenador,Laboratorio lab) {
 		lab.setCoordenador(coordenador);
 	}
 	
 	
 	
-	boolean verficarCoordenador(Usuario coordenador,Laboratorio lab) {
+	public boolean verficarCoordenador(Usuario coordenador,Laboratorio lab) {
 		if(lab.getCoordenador() == coordenador) 
 			return true;
 		
@@ -66,13 +66,13 @@ public class Controle {
 	return false;
 	}
 	
-	Laboratorio cadastrarLaboratorio(String nome, Usuario coordenador) {
-		Laboratorio lab = new Laboratorio(nome,coordenador);
+	public Laboratorio cadastrarLaboratorio(String nome) {
+		Laboratorio lab = new Laboratorio(nome);
 		return lab;
 		
 	}
 	
-	boolean verificarChave(String senha) {
+	public boolean verificarChave(String senha) {
 		if(senha.equals(padrao.getSenha()) ){
 			return true;
 		}
@@ -80,13 +80,13 @@ public class Controle {
 		return false;
 	}
 	
-	void adicionarLaboratorio(Laboratorio lab) {
+	public void adicionarLaboratorio(Laboratorio lab) {
 		laboratorios.add(lab);
 	}
 	
 	
 	
-	 ArrayList<Laboratorio> retornarLaboratorios(){
+	public ArrayList<Laboratorio> retornarLaboratorios(){
 		return laboratorios;
 	}
 	

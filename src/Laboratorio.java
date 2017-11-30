@@ -5,9 +5,9 @@ public class Laboratorio {
 	private ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
 	private Usuario coordenador;
 	
-	Laboratorio(String nome,Usuario coordenador){
+	Laboratorio(String nome){
 		this.nome = nome;
-		this.coordenador = coordenador;
+		
 	}
 	
 	
