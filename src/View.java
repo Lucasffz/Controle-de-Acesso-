@@ -61,9 +61,10 @@ public class View {
 			space();			
 			
 			System.out.println("1 - Deseja cadastrar novo usuário coordenador.");
-				System.out.println("2 -adicionar a coordenação a um usuário existente?");	
-			String op2 = input.next();
-			if(op ==1) {
+			System.out.println("2 - Adicionar a coordenação a um usuário existente?");
+			
+			int op2 = input.nextInt();
+			if(op2 == 1) {
 				System.out.println("Nome:");
 				String nomeu = input.next();
 				System.out.println("Matrícula:");
