@@ -27,13 +27,15 @@ public class View {
 
 		Scanner input = new Scanner(System.in);
 		
-		Administrador padrao = new Administrador();
 		
-		System.out.println("Criar usuï¿½rio padrï¿½o: ");
-		System.out.println("Digite o nome do usuï¿½rio padrï¿½o: ");
+		Adm padrao = new Adm();
+		
+		
+		System.out.println("Criar usuario padrão: ");
+		System.out.println("Digite o nome do usuário: ");
 		String namep = input.next();
 		padrao.setNome(namep);
-		System.out.println("Digite a senha do usuï¿½rio padï¿½o: ");
+		System.out.println("Digite a senha do usuário padrão: ");
 		String chavep = input.next();
 		padrao.setSenha(chavep);
 		
@@ -50,7 +52,7 @@ public class View {
 			boolean acesso = false;
 			int chances = 0;
 			while(!acesso) {
-				System.out.println("Digite a senha de usuï¿½rio padrï¿½o: ");
+				System.out.println("Digite a senha de usuario padrão: ");
 				String senha = input.next();
 				acesso = controle.verificarChave(senha);
 				
@@ -62,7 +64,7 @@ public class View {
 					System.out.println("Acesso negado.");
 				}
 				if(chances == 3) {
-					System.out.println("Vocï¿½ chegou ao limite de tentativa de acessos.");
+					System.out.println("Você chegou ao limite de tentativa de acessos.");
 					break;
 				}
 			}
@@ -71,24 +73,24 @@ public class View {
 			}
 			
 			String nome;
-			System.out.println("Digite o nome do laboratï¿½rio: ");
+			System.out.println("Digite o nome do laboratório: ");
 			nome = input.next();
 			
 			Laboratorio lab;
 			lab = controle.cadastrarLaboratorio(nome);
 			controle.adicionarLaboratorio(lab);
-			System.out.println("Laboratï¿½rio cadastrado com sucesso.");
+			System.out.println("Laboratório cadastrado com sucesso.");
 			
 			space();
 			
-			System.out.println("1 - Deseja cadastrar novo usuï¿½rio coordenador.");
-			System.out.println("2 - Adicionar a coordenaï¿½ï¿½o a um usuï¿½rio existente?");
+			System.out.println("1 - Deseja cadastrar novo usuário coordenador.");
+			System.out.println("2 - Adicionar a coordenanação a um usuário existente?");
 			
 			int op2 = input.nextInt();
 			if(op2 == 1) {
 				System.out.println("Nome:");
 				String nomeu = input.next();
-				System.out.println("Matrï¿½cula:");
+				System.out.println("Matrícula:");
 				String matriculau = input.next();
 				System.out.println("Curso:");
 				String cursou = input.next();
@@ -115,10 +117,73 @@ public class View {
 			
 		case 2:
 			for (int k = 0; k < controle.retornarLaboratorios().size(); k++) {
-				System.out.println(controle.retornarLaboratorios().get(k).getNome());
+				System.out.println("nome do laboratório" + controle.retornarLaboratorios().get(k).getNome());
 				System.out.println("-----------------");
 			}
 			break;
+			
+			
+			
+			
+		case 3:
+			
+			
+			Laboratorio novo_laboratorio = null;
+			while(true) {
+			System.out.println("Digite o nome do laboratório que deseja adicionar o novo Usuário: ");
+			String quallab = input.next();
+			
+			boolean encontrou = false;
+			for (int i = 0; i < controle.retornarLaboratorios().size(); i++) {
+				if(controle.retornarLaboratorios().get(i).getNome().equalsIgnoreCase(quallab)) {
+					novo_laboratorio = controle.retornarLaboratorios().get(i);
+					encontrou = true;
+				}
+			}
+			
+			if(encontrou) 
+				break;
+				
+			}
+			
+			System.out.println("1 - Para usuário Professor.");
+			System.out.println("2 - Para usuário Aluno.");
+			System.out.print(">>");
+			int op3 = input.nextInt();
+			
+			if(op3 == 1) {
+				String[] novo_usuario;
+				novo_usuario = cadastroUsuario();
+				
+				
+				Professor novo_professor = new Professor(novo_usuario[0],novo_usuario[1],novo_usuario[2],novo_laboratorio,novo_usuario[3]);
+				boolean cadastrou = controle.cadastrarUsuario(novo_professor, novo_laboratorio);
+				if(cadastrou) {
+					System.out.println("Cadastro feito com sucesso.");
+				}
+				else {
+					System.out.println("O usuário já existe.");
+				}
+				
+				space();
+				System.out.println("Usuário dentro do laboratório");
+				for (int i = 0; i < novo_laboratorio.getUsuarios().size(); i++) {
+					System.out.println(novo_laboratorio.getUsuarios().get(i).getNome());
+					System.out.println("-----");
+					
+				}
+			if(op3 == 2) {
+				String[] novo_usuario2;
+				novo_usuario2 = cadastroUsuario();
+				
+				Aluno novo_aluno = new Aluno(novo_usuario2[0],novo_usuario2[1],novo_usuario2[2],novo_laboratorio,novo_usuario2[3]);
+				novo_laboratorio.adicionarUsuario(novo_aluno);
+				
+				
+			}
+				
+					
+			}
 		}
 		
 		
@@ -132,17 +197,39 @@ public class View {
 	
 	
 	static void menu() {
-		System.out.println("Digite sua operaï¿½ï¿½o.");
-		System.out.println("1 - Cadastrar um laboratï¿½rio. ");
-		System.out.println("2 - Mostrar laboratï¿½rios. ");
-		System.out.println("2 - Cadastrar Usuï¿½rio em um laboratï¿½rio. ");
-		System.out.println("3 - listar usuï¿½rios de um laboratï¿½rio.  ");
+		System.out.println("Digite sua operação.");
+		System.out.println("1 - Cadastrar um laboratorio. ");
+		System.out.println("2 - Mostrar laboratórios. ");
+		System.out.println("3 - Adicionar membros a um laborátorio.");
+		System.out.println("4 - Cadastrar Usuário em um laboratório. ");
+		System.out.println("5 - listar usuários de um laboratório.  ");
 		
 	}
 	
 	static void space() {
 		System.out.println("--------------------------");
 		System.out.println();
+	}
+	
+	static String[] cadastroUsuario(){
+		String[] cadastro = new String[4];
+		Scanner input = new Scanner(System.in);
+		System.out.println("Nome: ");
+		String novo_nome = input.next();
+		cadastro[0] = novo_nome;
+		System.out.println("Matrícula do usuário: ");
+		String nova_matricula = input.next();
+		cadastro[1] = nova_matricula;
+		System.out.println("Curso:");
+		String novo_curso = input.next();
+		cadastro[2] = novo_curso;
+		System.out.println("Digite a nova senha:");
+		String nova_senha = input.next();
+		cadastro[3] = nova_senha;
+
+		
+		return cadastro;
+	 
 	}
 	
 	

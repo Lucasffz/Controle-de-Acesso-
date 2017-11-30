@@ -3,9 +3,9 @@ import java.util.ArrayList;
 public class Controle {
 
 		private ArrayList<Laboratorio> laboratorios =  new ArrayList<Laboratorio>();
+		private Adm padrao;
 		
-		
-		Controle(Administrador padrao){
+		Controle(Adm padrao){
 			this.padrao = padrao;
 		}
 		
