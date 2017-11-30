@@ -1,4 +1,5 @@
 public abstract class Usuario  {
+
 	protected String nome;
 	protected String matricula;
 	protected String curso;
@@ -17,7 +18,6 @@ public abstract class Usuario  {
 	Usuario(){
 		
 	}
-	
 	
 	public String getNome() {
 		return nome;
@@ -57,7 +57,4 @@ public abstract class Usuario  {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
-	
-	
-	
 }

@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 public class Controle {
-		private Administrador padrao;
+
 		private ArrayList<Laboratorio> laboratorios =  new ArrayList<Laboratorio>();
 		
 		
@@ -25,8 +25,6 @@ public class Controle {
 	
 	public Usuario criarUsuarioAluno(String nome,String matricula,String curso, Laboratorio laboratorio,String senha) {
 		Usuario usuario = new Aluno(nome,matricula,curso,laboratorio,senha);
-		
-		
 		return usuario;
 	}
 	
@@ -34,9 +32,6 @@ public class Controle {
 	
 	public Usuario criarUsuarioProfessor(String nome,String matricula,String curso, Laboratorio laboratorio,String senha) {
 		Usuario usuario = new Professor(nome,matricula,curso,laboratorio,senha);
-		
-		
-		
 		return usuario;
 	}
 	
@@ -45,7 +40,6 @@ public class Controle {
 			if(lab.getUsuarios().get(i) == usuario)
 				return false;
 		}
-		
 		
 		lab.adicionarUsuario(usuario);
 		
@@ -56,20 +50,16 @@ public class Controle {
 		lab.setCoordenador(coordenador);
 	}
 	
-	
-	
 	public boolean verficarCoordenador(Usuario coordenador,Laboratorio lab) {
 		if(lab.getCoordenador() == coordenador) 
 			return true;
-		
-		
-	return false;
+
+		return false;
 	}
 	
 	public Laboratorio cadastrarLaboratorio(String nome) {
 		Laboratorio lab = new Laboratorio(nome);
-		return lab;
-		
+		return lab;		
 	}
 	
 	public boolean verificarChave(String senha) {
@@ -84,20 +74,7 @@ public class Controle {
 		laboratorios.add(lab);
 	}
 	
-	
-	
 	public ArrayList<Laboratorio> retornarLaboratorios(){
 		return laboratorios;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 }

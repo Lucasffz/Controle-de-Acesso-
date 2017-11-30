@@ -7,9 +7,7 @@ public class Laboratorio {
 	
 	Laboratorio(String nome){
 		this.nome = nome;
-		
 	}
-	
 	
 	public String getNome() {
 		return nome;
@@ -25,15 +23,11 @@ public class Laboratorio {
 		usuarios.add(usuario);
 	}
 	
-	
-	
 	public Usuario getCoordenador() {
 		return coordenador;
 	}
 	
 	public void setCoordenador(Usuario coordenador) {
 		this.coordenador = coordenador;
-	}
-	 
-
+	} 
 }

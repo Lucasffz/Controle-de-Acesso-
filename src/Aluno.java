@@ -1,11 +1,10 @@
 
 public final class Aluno extends Usuario{
-
 	Aluno(String nome, String matricula, String curso, Laboratorio laboratorio, String senha) {
 		super(nome, matricula, curso, laboratorio, senha);
 	
 	}
-	
+
 	public String getNome() {
 		return nome;
 	}
@@ -30,8 +29,4 @@ public final class Aluno extends Usuario{
 	public void setLaboratorio(Laboratorio laboratorio) {
 		this.laboratorio = laboratorio;
 	}
-	
-	
-	
-
 }
