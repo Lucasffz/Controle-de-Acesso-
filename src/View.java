@@ -186,9 +186,12 @@ public class View {
 		case 4:
 			System.out.print("Laboratório: ");
 			String labo = input.next();
+			boolean encontrou = false;
 			for (int i = 0; i < controle.retornarLaboratorios().size(); i++) {
 				if(controle.retornarLaboratorios().get(i).getNome().equalsIgnoreCase(labo)) {
+					encontrou = true;
 					System.out.println(controle.retornarLaboratorios().get(i).getCoordenador().getNome());
+					
 					System.out.println("--------------------------------");
 					for (int j = 0; j < controle.retornarLaboratorios().get(i).getUsuarios().size(); j++) {
 						System.out.println(controle.retornarLaboratorios().get(i).getUsuarios().get(j).getNome());
@@ -197,8 +200,13 @@ public class View {
 						
 					}
 				}
+			
 			}
 			
+			if(!encontrou) {
+				System.out.println("Laboratório não encontrado...");
+				System.out.println("tente novamente....");
+			}
 					
 			}
 		}
