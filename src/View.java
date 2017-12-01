@@ -33,10 +33,10 @@ public class View {
 		
 		System.out.println("Criar usuario padrão: ");
 		System.out.println("Digite o nome do usuário: ");
-		String namep = input.next();
+		String namep = input.nextLine();
 		padrao.setNome(namep);
 		System.out.println("Digite a senha do usuário padrão: ");
-		String chavep = input.next();
+		String chavep = input.nextLine();
 		padrao.setSenha(chavep);
 		
 		Controle controle = new Controle(padrao);
@@ -71,7 +71,7 @@ public class View {
 			if(chances == 3) {
 				break;
 			}
-			
+		
 			String nome;
 			System.out.println("Digite o nome do laboratório: ");
 			nome = input.next();
@@ -87,26 +87,19 @@ public class View {
 			System.out.println("2 - Adicionar a coordenanação a um usuário existente?");
 			
 			int op2 = input.nextInt();
+			space();
 			if(op2 == 1) {
-				System.out.println("Nome:");
-				String nomeu = input.next();
-				System.out.println("Matrícula:");
-				String matriculau = input.next();
-				System.out.println("Curso:");
-				String cursou = input.next();
-				System.out.println("senha:");
-				String senhau = input.next();
-				Usuario prof = controle.criarUsuarioProfessor(nomeu, matriculau, cursou, lab, senhau);
+				
+				String[] coordenador;
+				coordenador = cadastroUsuario();
+				
+				Usuario prof = controle.criarUsuarioProfessor(coordenador[0], coordenador[1], coordenador[2], lab, coordenador[3]);
 				controle.adicionarCoordenadordeLaboratorio(prof, lab);
 			}
 			
 			/* eu criei um ArrayList do tipo Usuario, as classes Professor e Aluno extend de Usuario, quando eu crio um ArrayList do tipo Usuario
 				 e depois intancio um classe 'Usuario p = new Professor()' os mï¿½todos especï¿½ficos da classe professor nï¿½o sï¿½o visiveis, 
 				 sabe como eu posso contar isso, pra ter um ï¿½nico ArrayList com alunos e professores e usar seus mï¿½todos espcï¿½ficos???
-				  */
-			
-			
-			
 			
 			/*System.out.println(lab.getNome());
 			System.out.println(lab.getCoordenador().getNome());
@@ -188,7 +181,7 @@ public class View {
 					System.out.println("Usuário já existe.");
 				
 			}
-			
+			break;
 			
 		case 4:
 			System.out.print("Laboratório: ");
@@ -243,16 +236,16 @@ public class View {
 		String[] cadastro = new String[4];
 		Scanner input = new Scanner(System.in);
 		System.out.println("Nome: ");
-		String novo_nome = input.next();
+		String novo_nome = input.nextLine();
 		cadastro[0] = novo_nome;
 		System.out.println("Matrícula do usuário: ");
-		String nova_matricula = input.next();
+		String nova_matricula = input.nextLine();
 		cadastro[1] = nova_matricula;
 		System.out.println("Curso:");
-		String novo_curso = input.next();
+		String novo_curso = input.nextLine();
 		cadastro[2] = novo_curso;
 		System.out.println("Digite a nova senha:");
-		String nova_senha = input.next();
+		String nova_senha = input.nextLine();
 		cadastro[3] = nova_senha;
 
 		
