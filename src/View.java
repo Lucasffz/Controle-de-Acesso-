@@ -172,16 +172,40 @@ public class View {
 					System.out.println("-----");
 					
 				}
-			if(op3 == 2) {
+			}	
+			else if(op3 == 2) {
+				
 				String[] novo_usuario2;
 				novo_usuario2 = cadastroUsuario();
 				
 				Aluno novo_aluno = new Aluno(novo_usuario2[0],novo_usuario2[1],novo_usuario2[2],novo_laboratorio,novo_usuario2[3]);
-				novo_laboratorio.adicionarUsuario(novo_aluno);
-				
+				boolean cadastrou2 = controle.cadastrarUsuario(novo_aluno, novo_laboratorio);
+				if(cadastrou2) {
+					System.out.println("Cadastro feito com sucesso.");
+					
+				}
+				else
+					System.out.println("Usuário já existe.");
 				
 			}
-				
+			
+			
+		case 4:
+			System.out.print("Laboratório: ");
+			String labo = input.next();
+			for (int i = 0; i < controle.retornarLaboratorios().size(); i++) {
+				if(controle.retornarLaboratorios().get(i).getNome().equalsIgnoreCase(labo)) {
+					System.out.println(controle.retornarLaboratorios().get(i).getCoordenador().getNome());
+					System.out.println("--------------------------------");
+					for (int j = 0; j < controle.retornarLaboratorios().get(i).getUsuarios().size(); j++) {
+						System.out.println(controle.retornarLaboratorios().get(i).getUsuarios().get(j).getNome());
+						System.out.println("----------------------------");
+						
+						
+					}
+				}
+			}
+			
 					
 			}
 		}
@@ -192,17 +216,21 @@ public class View {
 		
 		
 		
+	
+	
+	
+	
+	static void entrada() {
+		System.out.println("1 - Entrar no laboratório. ");
+		System.out.println("2 - Menu admistrador");
 	}
-	
-	
 	
 	static void menu() {
 		System.out.println("Digite sua operação.");
 		System.out.println("1 - Cadastrar um laboratorio. ");
 		System.out.println("2 - Mostrar laboratórios. ");
 		System.out.println("3 - Adicionar membros a um laborátorio.");
-		System.out.println("4 - Cadastrar Usuário em um laboratório. ");
-		System.out.println("5 - listar usuários de um laboratório.  ");
+		System.out.println("4 - listar usuários de um laboratório.  ");
 		
 	}
 	
