@@ -101,11 +101,11 @@ public class View {
 				space();
 				if(op2 == 1) {
 					
-					String[] coordenador;
-					coordenador = cadastroUsuario();
+					String[] acoordenador;
+					acoordenador = cadastroUsuario();
 					
-					Usuario prof = controle.criarUsuarioProfessor(coordenador[0], coordenador[1], coordenador[2], lab, coordenador[3]);
-					controle.adicionarCoordenadordeLaboratorio(prof, lab);
+					Usuario coordenador = controle.criarUsuarioCoordenador(acoordenador[0], acoordenador[1], acoordenador[2], lab, acoordenador[3]);
+					controle.adicionarCoordenadordeLaboratorio(coordenador, lab);
 				}
 				break;
 				
@@ -131,6 +131,15 @@ public class View {
 				
 			case 3:
 				
+				if(controle.retornarLaboratorios().isEmpty()) {
+					System.out.println("Ainda não há laboratórios cadastrados nesse sistema.");
+					space();
+					continue;
+					
+				}
+				
+				
+				
 				
 				Laboratorio novo_laboratorio = null;
 				while(true) {
@@ -147,7 +156,8 @@ public class View {
 				
 				if(encontrou) 
 					break;
-					
+				else
+					System.out.println("Laboratório não encontrado.");
 				}
 				
 				System.out.println("1 - Para usuário Professor.");
@@ -156,6 +166,30 @@ public class View {
 				int op3 = input.nextInt();
 				
 				if(op3 == 1) {
+					
+					boolean acesso2 = false;
+					int chances2 = 0;
+					while(!acesso2) {
+						System.out.println("Digite a senha de usuario padrão: ");
+						String senha = input.next();
+						acesso2 = controle.verificarChave(senha);
+						
+						if(acesso2)
+							System.out.println("Acesso liberado.");
+						else {
+							chances2++;
+							System.out.println("senha incorreta.");
+							System.out.println("Acesso negado.");
+						}
+						if(chances2 == 3) {
+							System.out.println("Você chegou ao limite de tentativa de acessos.");
+							break;
+						}
+					}
+					if(chances2 == 3) 
+						break;
+					
+					
 					String[] novo_usuario;
 					novo_usuario = cadastroUsuario();
 					
@@ -223,7 +257,12 @@ public class View {
 			}
 		}
 		else if(e == 1) {
-			
+			if(controle.retornarLaboratorios().isEmpty()) {
+				System.out.println("Ainda não há laboratórios cadastrados nesse sistema.");
+				space();
+				continue;
+				
+			}
 			Laboratorio laboratorio3 = null;
 			while(true) {
 			System.out.println("Laboratório: ");

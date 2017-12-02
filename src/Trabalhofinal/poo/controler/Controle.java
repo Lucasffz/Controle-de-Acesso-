@@ -30,7 +30,10 @@ public class Controle {
 		return usuario;
 	}
 	
-	
+	public Usuario criarUsuarioCoordenador(String nome,String matricula,String curso, Laboratorio laboratorio,String senha) {
+		Usuario usuario = new Coordenador(nome,matricula,curso,laboratorio,senha);
+		return usuario;
+	}
 	
 	public Usuario criarUsuarioProfessor(String nome,String matricula,String curso, Laboratorio laboratorio,String senha) {
 		Usuario usuario = new Professor(nome,matricula,curso,laboratorio,senha);
