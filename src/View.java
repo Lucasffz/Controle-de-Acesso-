@@ -41,15 +41,15 @@ public class View {
 		
 		Controle controle = new Controle(padrao);
 		
-		
+		while(true) {
 		entrada();
 		int e = input.nextInt();
 		
 		if(e == 2) {
 		
 		
-			int op;
-			while(true) {
+			int op = -1;
+			while(op!=0) {
 			menu();
 			space();
 			
@@ -222,17 +222,19 @@ public class View {
 					System.out.println("tente novamente....");
 				}
 				break;
-						
+				
+			case 0:
+				break;
 				}
 			}
 		}
 		else if(e == 1) {
 			
-			
+			Laboratorio laboratorio3 = null;
 			while(true) {
 			System.out.println("Laboratório: ");
 			String labo = input.next();
-			Laboratorio laboratorio3;
+			
 			
 			boolean encontrou = false;
 			for (int i = 0; i < controle.retornarLaboratorios().size(); i++) {
@@ -253,10 +255,22 @@ public class View {
 			System.out.print("Digite a senha: ");
 			String senha = input.next();
 			boolean acesso = controle.acessar(matri, senha, laboratorio3);
+			if(acesso) {
+				System.out.println("Acesso liberado.");
+			}
+			else
+				System.out.println("Acesso negado.");
 			
 			
 			
-			
+		}
+		
+		else if(e == 0) {
+			System.out.println("Tchau.");
+			break;
+		}
+		
+		
 		}
 		
 		
@@ -273,6 +287,7 @@ public class View {
 	static void entrada() {
 		System.out.println("1 - Entrar no laboratório. ");
 		System.out.println("2 - Menu admistrador");
+		System.out.println("0 - Sair.");
 	}
 	
 	static void menu() {
@@ -281,7 +296,7 @@ public class View {
 		System.out.println("2 - Mostrar laboratórios. ");
 		System.out.println("3 - Adicionar membros a um laborátorio.");
 		System.out.println("4 - listar usuários de um laboratório.  ");
-		
+		System.out.println("0 - voltar.");
 	}
 	
 	static void space() {
