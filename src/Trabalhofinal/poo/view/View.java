@@ -1,5 +1,8 @@
+package Trabalhofinal.poo.view;
 import java.util.ArrayList;
 import java.util.Scanner;
+import Trabalhofinal.poo.model.*;
+import Trabalhofinal.poo.controler.*;
 
 public class View {
 
@@ -43,6 +46,7 @@ public class View {
 		
 		while(true) {
 		entrada();
+		System.out.print(">>");
 		int e = input.nextInt();
 		
 		if(e == 2) {
@@ -52,7 +56,7 @@ public class View {
 			while(op!=0) {
 			menu();
 			space();
-			
+			System.out.print(">>");
 			op = input.nextInt();
 			switch(op) {
 			case 1:
@@ -103,32 +107,22 @@ public class View {
 					Usuario prof = controle.criarUsuarioProfessor(coordenador[0], coordenador[1], coordenador[2], lab, coordenador[3]);
 					controle.adicionarCoordenadordeLaboratorio(prof, lab);
 				}
-				
-				/* eu criei um ArrayList do tipo Usuario, as classes Professor e Aluno extend de Usuario, quando eu crio um ArrayList do tipo Usuario
-					 e depois intancio um classe 'Usuario p = new Professor()' os mï¿½todos especï¿½ficos da classe professor nï¿½o sï¿½o visiveis, 
-					 sabe como eu posso contar isso, pra ter um ï¿½nico ArrayList com alunos e professores e usar seus mï¿½todos espcï¿½ficos???
-				
-				/*System.out.println(lab.getNome());
-				System.out.println(lab.getCoordenador().getNome());
-				System.out.println(lab.);*/
-				
-				
 				break;
 				
 			case 2:
 				
 				if(controle.retornarLaboratorios().isEmpty()) {
-					System.out.println("Ainda não há laboratórios cadastrados nesse sistema.");
-					
+					System.out.println("Ainda não há laboratórios cadastrados nesse sistema.");	
 				}
-				
-				
+				else {
+				System.out.println("LABORATÓRIOS:");
 				for (int k = 0; k < controle.retornarLaboratorios().size(); k++) {
-					System.out.println("nome do laboratório" + controle.retornarLaboratorios().get(k).getNome());
+					
+					System.out.println(controle.retornarLaboratorios().get(k).getNome());
 					System.out.println("-----------------");
 				}
 				
-				
+				}
 				space();
 				break;
 				

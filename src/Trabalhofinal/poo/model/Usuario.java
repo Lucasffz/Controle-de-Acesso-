@@ -1,3 +1,4 @@
+package Trabalhofinal.poo.model;
 public abstract class Usuario  {
 
 	protected String nome;

@@ -1,6 +1,6 @@
-
+package Trabalhofinal.poo.model;
 public final class Aluno extends Usuario{
-	Aluno(String nome, String matricula, String curso,Laboratorio laboratorio, String senha) {
+	public Aluno(String nome, String matricula, String curso,Laboratorio laboratorio, String senha) {
 		super(nome, matricula, curso,laboratorio, senha);
 	
 	}

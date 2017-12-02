@@ -1,3 +1,4 @@
+package Trabalhofinal.poo.model;
 import java.util.ArrayList;
 
 public class Laboratorio {
@@ -5,7 +6,7 @@ public class Laboratorio {
 	private ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
 	private Usuario coordenador;
 	
-	Laboratorio(String nome){
+	public Laboratorio(String nome){
 		this.nome = nome;
 	}
 	

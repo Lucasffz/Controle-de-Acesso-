@@ -1,11 +1,13 @@
+package Trabalhofinal.poo.controler;
 import java.util.ArrayList;
+import Trabalhofinal.poo.model.*;
 
 public class Controle {
 
 		private ArrayList<Laboratorio> laboratorios =  new ArrayList<Laboratorio>();
 		private Adm padrao;
 		
-		Controle(Adm padrao){
+		public Controle(Adm padrao){
 			this.padrao = padrao;
 		}
 		
