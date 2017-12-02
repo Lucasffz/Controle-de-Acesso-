@@ -40,180 +40,229 @@ public class View {
 		padrao.setSenha(chavep);
 		
 		Controle controle = new Controle(padrao);
-		int op;
 		
-		while(true) {
-		menu();
-		space();
 		
-		op = input.nextInt();
-		switch(op) {
-		case 1:
-			boolean acesso = false;
-			int chances = 0;
-			while(!acesso) {
-				System.out.println("Digite a senha de usuario padrão: ");
-				String senha = input.next();
-				acesso = controle.verificarChave(senha);
-				
-				if(acesso)
-					System.out.println("Acesso liberado.");
-				else {
-					chances++;
-					System.out.println("senha incorreta.");
-					System.out.println("Acesso negado.");
+		entrada();
+		int e = input.nextInt();
+		
+		if(e == 2) {
+		
+		
+			int op;
+			while(true) {
+			menu();
+			space();
+			
+			op = input.nextInt();
+			switch(op) {
+			case 1:
+				boolean acesso = false;
+				int chances = 0;
+				while(!acesso) {
+					System.out.println("Digite a senha de usuario padrão: ");
+					String senha = input.next();
+					acesso = controle.verificarChave(senha);
+					
+					if(acesso)
+						System.out.println("Acesso liberado.");
+					else {
+						chances++;
+						System.out.println("senha incorreta.");
+						System.out.println("Acesso negado.");
+					}
+					if(chances == 3) {
+						System.out.println("Você chegou ao limite de tentativa de acessos.");
+						break;
+					}
 				}
 				if(chances == 3) {
-					System.out.println("Você chegou ao limite de tentativa de acessos.");
 					break;
 				}
-			}
-			if(chances == 3) {
-				break;
-			}
-		
-			String nome;
-			System.out.println("Digite o nome do laboratório: ");
-			nome = input.next();
 			
-			Laboratorio lab;
-			lab = controle.cadastrarLaboratorio(nome);
-			controle.adicionarLaboratorio(lab);
-			System.out.println("Laboratório cadastrado com sucesso.");
-			
-			space();
-			
-			System.out.println("1 - Deseja cadastrar novo usuário coordenador.");
-			System.out.println("2 - Adicionar a coordenanação a um usuário existente?");
-			
-			int op2 = input.nextInt();
-			space();
-			if(op2 == 1) {
+				String nome;
+				System.out.println("Digite o nome do laboratório: ");
+				nome = input.next();
 				
-				String[] coordenador;
-				coordenador = cadastroUsuario();
-				
-				Usuario prof = controle.criarUsuarioProfessor(coordenador[0], coordenador[1], coordenador[2], lab, coordenador[3]);
-				controle.adicionarCoordenadordeLaboratorio(prof, lab);
-			}
-			
-			/* eu criei um ArrayList do tipo Usuario, as classes Professor e Aluno extend de Usuario, quando eu crio um ArrayList do tipo Usuario
-				 e depois intancio um classe 'Usuario p = new Professor()' os mï¿½todos especï¿½ficos da classe professor nï¿½o sï¿½o visiveis, 
-				 sabe como eu posso contar isso, pra ter um ï¿½nico ArrayList com alunos e professores e usar seus mï¿½todos espcï¿½ficos???
-			
-			/*System.out.println(lab.getNome());
-			System.out.println(lab.getCoordenador().getNome());
-			System.out.println(lab.);*/
-			
-			
-			break;
-			
-		case 2:
-			for (int k = 0; k < controle.retornarLaboratorios().size(); k++) {
-				System.out.println("nome do laboratório" + controle.retornarLaboratorios().get(k).getNome());
-				System.out.println("-----------------");
-			}
-			break;
-			
-			
-			
-			
-		case 3:
-			
-			
-			Laboratorio novo_laboratorio = null;
-			while(true) {
-			System.out.println("Digite o nome do laboratório que deseja adicionar o novo Usuário: ");
-			String quallab = input.next();
-			
-			boolean encontrou = false;
-			for (int i = 0; i < controle.retornarLaboratorios().size(); i++) {
-				if(controle.retornarLaboratorios().get(i).getNome().equalsIgnoreCase(quallab)) {
-					novo_laboratorio = controle.retornarLaboratorios().get(i);
-					encontrou = true;
-				}
-			}
-			
-			if(encontrou) 
-				break;
-				
-			}
-			
-			System.out.println("1 - Para usuário Professor.");
-			System.out.println("2 - Para usuário Aluno.");
-			System.out.print(">>");
-			int op3 = input.nextInt();
-			
-			if(op3 == 1) {
-				String[] novo_usuario;
-				novo_usuario = cadastroUsuario();
-				
-				
-				Professor novo_professor = new Professor(novo_usuario[0],novo_usuario[1],novo_usuario[2],novo_laboratorio,novo_usuario[3]);
-				boolean cadastrou = controle.cadastrarUsuario(novo_professor, novo_laboratorio);
-				if(cadastrou) {
-					System.out.println("Cadastro feito com sucesso.");
-				}
-				else {
-					System.out.println("O usuário já existe.");
-				}
+				Laboratorio lab;
+				lab = controle.cadastrarLaboratorio(nome);
+				controle.adicionarLaboratorio(lab);
+				System.out.println("Laboratório cadastrado com sucesso.");
 				
 				space();
-				System.out.println("Usuário dentro do laboratório");
-				for (int i = 0; i < novo_laboratorio.getUsuarios().size(); i++) {
-					System.out.println(novo_laboratorio.getUsuarios().get(i).getNome());
-					System.out.println("-----");
+				
+				System.out.println("1 - Deseja cadastrar novo usuário coordenador.");
+				System.out.println("2 - Adicionar a coordenanação a um usuário existente?");
+				
+				int op2 = input.nextInt();
+				space();
+				if(op2 == 1) {
+					
+					String[] coordenador;
+					coordenador = cadastroUsuario();
+					
+					Usuario prof = controle.criarUsuarioProfessor(coordenador[0], coordenador[1], coordenador[2], lab, coordenador[3]);
+					controle.adicionarCoordenadordeLaboratorio(prof, lab);
+				}
+				
+				/* eu criei um ArrayList do tipo Usuario, as classes Professor e Aluno extend de Usuario, quando eu crio um ArrayList do tipo Usuario
+					 e depois intancio um classe 'Usuario p = new Professor()' os mï¿½todos especï¿½ficos da classe professor nï¿½o sï¿½o visiveis, 
+					 sabe como eu posso contar isso, pra ter um ï¿½nico ArrayList com alunos e professores e usar seus mï¿½todos espcï¿½ficos???
+				
+				/*System.out.println(lab.getNome());
+				System.out.println(lab.getCoordenador().getNome());
+				System.out.println(lab.);*/
+				
+				
+				break;
+				
+			case 2:
+				
+				if(controle.retornarLaboratorios().isEmpty()) {
+					System.out.println("Ainda não há laboratórios cadastrados nesse sistema.");
 					
 				}
-			}	
-			else if(op3 == 2) {
 				
-				String[] novo_usuario2;
-				novo_usuario2 = cadastroUsuario();
 				
-				Aluno novo_aluno = new Aluno(novo_usuario2[0],novo_usuario2[1],novo_usuario2[2],novo_laboratorio,novo_usuario2[3]);
-				boolean cadastrou2 = controle.cadastrarUsuario(novo_aluno, novo_laboratorio);
-				if(cadastrou2) {
-					System.out.println("Cadastro feito com sucesso.");
-					
+				for (int k = 0; k < controle.retornarLaboratorios().size(); k++) {
+					System.out.println("nome do laboratório" + controle.retornarLaboratorios().get(k).getNome());
+					System.out.println("-----------------");
 				}
-				else
-					System.out.println("Usuário já existe.");
 				
-			}
-			break;
+				
+				space();
+				break;
+				
 			
-		case 4:
-			System.out.print("Laboratório: ");
+				
+				
+			case 3:
+				
+				
+				Laboratorio novo_laboratorio = null;
+				while(true) {
+				System.out.println("Digite o nome do laboratório que deseja adicionar o novo Usuário: ");
+				String quallab = input.next();
+				
+				boolean encontrou = false;
+				for (int i = 0; i < controle.retornarLaboratorios().size(); i++) {
+					if(controle.retornarLaboratorios().get(i).getNome().equalsIgnoreCase(quallab)) {
+						novo_laboratorio = controle.retornarLaboratorios().get(i);
+						encontrou = true;
+					}
+				}
+				
+				if(encontrou) 
+					break;
+					
+				}
+				
+				System.out.println("1 - Para usuário Professor.");
+				System.out.println("2 - Para usuário Aluno.");
+				System.out.print(">>");
+				int op3 = input.nextInt();
+				
+				if(op3 == 1) {
+					String[] novo_usuario;
+					novo_usuario = cadastroUsuario();
+					
+					
+					Professor novo_professor = new Professor(novo_usuario[0],novo_usuario[1],novo_usuario[2],novo_laboratorio,novo_usuario[3]);
+					boolean cadastrou = controle.cadastrarUsuario(novo_professor, novo_laboratorio);
+					if(cadastrou) {
+						System.out.println("Cadastro feito com sucesso.");
+					}
+					else {
+						System.out.println("O usuário já existe.");
+					}
+					
+					space();
+					System.out.println("Usuário dentro do laboratório");
+					for (int i = 0; i < novo_laboratorio.getUsuarios().size(); i++) {
+						System.out.println(novo_laboratorio.getUsuarios().get(i).getNome());
+						System.out.println("-----");
+						
+					}
+				}	
+				else if(op3 == 2) {
+					
+					String[] novo_usuario2;
+					novo_usuario2 = cadastroUsuario();
+					
+					Aluno novo_aluno = new Aluno(novo_usuario2[0],novo_usuario2[1],novo_usuario2[2],novo_laboratorio,novo_usuario2[3]);
+					boolean cadastrou2 = controle.cadastrarUsuario(novo_aluno, novo_laboratorio);
+					if(cadastrou2) {
+						System.out.println("Cadastro feito com sucesso.");
+						
+					}
+					else
+						System.out.println("Usuário já existe.");
+					
+				}
+				break;
+				
+			case 4:
+				System.out.print("Laboratório: ");
+				String labo = input.next();
+				boolean encontrou = false;
+				for (int i = 0; i < controle.retornarLaboratorios().size(); i++) {
+					if(controle.retornarLaboratorios().get(i).getNome().equalsIgnoreCase(labo)) {
+						encontrou = true;
+						System.out.println(controle.retornarLaboratorios().get(i).getCoordenador().getNome());
+						
+						System.out.println("--------------------------------");
+						for (int j = 0; j < controle.retornarLaboratorios().get(i).getUsuarios().size(); j++) {
+							System.out.println(controle.retornarLaboratorios().get(i).getUsuarios().get(j).getNome());
+							System.out.println("----------------------------");	
+						}
+					}
+				}
+				
+				if(!encontrou) {
+					System.out.println("Laboratório não encontrado...");
+					System.out.println("tente novamente....");
+				}
+				break;
+						
+				}
+			}
+		}
+		else if(e == 1) {
+			
+			
+			while(true) {
+			System.out.println("Laboratório: ");
 			String labo = input.next();
+			Laboratorio laboratorio3;
+			
 			boolean encontrou = false;
 			for (int i = 0; i < controle.retornarLaboratorios().size(); i++) {
 				if(controle.retornarLaboratorios().get(i).getNome().equalsIgnoreCase(labo)) {
+					laboratorio3 = controle.retornarLaboratorios().get(i);
 					encontrou = true;
-					System.out.println(controle.retornarLaboratorios().get(i).getCoordenador().getNome());
-					
-					System.out.println("--------------------------------");
-					for (int j = 0; j < controle.retornarLaboratorios().get(i).getUsuarios().size(); j++) {
-						System.out.println(controle.retornarLaboratorios().get(i).getUsuarios().get(j).getNome());
-						System.out.println("----------------------------");
-						
-						
-					}
 				}
-			
 			}
 			
-			if(!encontrou) {
-				System.out.println("Laboratório não encontrado...");
-				System.out.println("tente novamente....");
+			if(encontrou)
+				break;
+			else
+				System.out.println("Laboratório não encontrado.");
 			}
-					
-			}
+				
+			System.out.print("Digite a matrícula: ");
+			String matri = input.next();
+			System.out.print("Digite a senha: ");
+			String senha = input.next();
+			boolean acesso = controle.acessar(matri, senha, laboratorio3);
+			
+			
+			
+			
 		}
 		
 		
+}
 		
-		}
+	
 		
 		
 		
@@ -236,7 +285,8 @@ public class View {
 	}
 	
 	static void space() {
-		System.out.println("--------------------------");
+		System.out.println();
+		System.out.println("---------------------------------------------------------------------");
 		System.out.println();
 	}
 	
@@ -260,17 +310,5 @@ public class View {
 		return cadastro;
 	 
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 }

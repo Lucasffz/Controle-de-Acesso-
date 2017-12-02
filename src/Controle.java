@@ -77,4 +77,10 @@ public class Controle {
 	public ArrayList<Laboratorio> retornarLaboratorios(){
 		return laboratorios;
 	}
+	
+	
+	
+	
+	
+	
 }
