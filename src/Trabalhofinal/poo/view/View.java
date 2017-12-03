@@ -325,10 +325,10 @@ public class View {
 				System.out.println("Acesso liberado.");
 				controle.adcionarAcesso(matri, senha, "Positivo");
 			}
-			else
+			else {
 				controle.adcionarAcesso(matri, senha, "Negativo");
 				System.out.println("Acesso negado.");
-			
+			}
 			
 			
 		}
