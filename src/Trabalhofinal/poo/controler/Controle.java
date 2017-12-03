@@ -96,7 +96,9 @@ public class Controle {
 		acessos.add(acesso);
 	}
 	
-	
+	public ArrayList<Acesso> retornarAcessos(){
+		return acessos;
+	}
 	
 	
 	

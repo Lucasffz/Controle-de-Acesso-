@@ -250,10 +250,43 @@ public class View {
 					System.out.println("tente novamente....");
 				}
 				break;
+			
+				
+				
+				
+				
+			case 5:
+				
+				if(controle.retornarAcessos().isEmpty())
+					System.out.println("Não há acessos nesse sistema...");
+				
+				
+				System.out.println("ACESSOS: ");
+				for (int i = 0; i < controle.retornarAcessos().size(); i++) {
+					
+					System.out.println("Identificação: " + controle.retornarAcessos().get(i).getId());
+					System.out.println("Senha: " + controle.retornarAcessos().get(i).getSenha());
+					System.out.println("Status: " + controle.retornarAcessos().get(i).getStatus());
+					System.out.println("Data: " + controle.retornarAcessos().get(i).getData());
+					System.out.println("Hora: " + controle.retornarAcessos().get(i).getHora());
+					System.out.println(" --------------------------------------------------------");
+				}
+				
+				
+				
+				
+				
+				
 				
 			case 0:
 				break;
+			
+				
+				
+			default:
+				System.out.println("Opção inválida. ");
 				}
+			
 			}
 		}
 		else if(e == 1) {
@@ -290,8 +323,10 @@ public class View {
 			boolean acesso = controle.acessar(matri, senha, laboratorio3);
 			if(acesso) {
 				System.out.println("Acesso liberado.");
+				controle.adcionarAcesso(matri, senha, "Positivo");
 			}
 			else
+				controle.adcionarAcesso(matri, senha, "Negativo");
 				System.out.println("Acesso negado.");
 			
 			
@@ -329,6 +364,7 @@ public class View {
 		System.out.println("2 - Mostrar laboratórios. ");
 		System.out.println("3 - Adicionar membros a um laborátorio.");
 		System.out.println("4 - listar usuários de um laboratório.  ");
+		System.out.println("5 - Listar Acessos. ");
 		System.out.println("0 - voltar.");
 	}
 	
