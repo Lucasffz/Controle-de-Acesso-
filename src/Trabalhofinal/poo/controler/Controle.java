@@ -38,9 +38,9 @@ public class Controle {
 		return usuario;
 	}
 	
-	public Usuario criarUsuarioCoordenador(String nome,String matricula,String curso, Laboratorio laboratorio,String senha) {
-		Usuario usuario = new Coordenador(nome,matricula,curso,laboratorio,senha);
-		return usuario;
+	public Coordenador criarUsuarioCoordenador(String nome,String matricula,String curso, Laboratorio laboratorio,String senha) {
+		Coordenador coordenador = new Coordenador(nome,matricula,curso,laboratorio,senha);
+		return coordenador;
 	}
 	
 	public Usuario criarUsuarioProfessor(String nome,String matricula,String curso, Laboratorio laboratorio,String senha) {
@@ -57,7 +57,7 @@ public class Controle {
 		return true;
 	}
 	
-	public void adicionarCoordenadordeLaboratorio(Usuario coordenador,Laboratorio lab) {
+	public void adicionarCoordenadordeLaboratorio(Coordenador coordenador,Laboratorio lab) {
 		lab.setCoordenador(coordenador);
 	}
 	
@@ -73,13 +73,22 @@ public class Controle {
 		return lab;		
 	}
 	
-	public boolean verificarChave(String senha) {
+	public boolean verificarChaveDoAdministrador(String senha) {
 		if(senha.equals(padrao.getSenha()) ){
 			return true;
 		}
 				
 		return false;
 	}
+	
+	
+	public boolean verificarChaveDoCoordenador(String senha, Usuario coordenador) {
+		if(senha.equalsIgnoreCase(coordenador.getSenha()))
+				return true;
+		return false;	
+	}
+	
+	
 	
 	public void adicionarLaboratorio(Laboratorio lab) {
 		laboratorios.add(lab);

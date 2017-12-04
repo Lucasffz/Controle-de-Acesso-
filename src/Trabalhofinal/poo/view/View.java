@@ -65,7 +65,7 @@ public class View {
 				while(!acesso) {
 					System.out.println("Digite a senha de usuario padrão: ");
 					String senha = input.next();
-					acesso = controle.verificarChave(senha);
+					acesso = controle.verificarChaveDoAdministrador(senha);
 					
 					if(acesso)
 						System.out.println("Acesso liberado.");
@@ -104,7 +104,7 @@ public class View {
 					String[] acoordenador;
 					acoordenador = cadastroUsuario();
 					
-					Usuario coordenador = controle.criarUsuarioCoordenador(acoordenador[0], acoordenador[1], acoordenador[2], lab, acoordenador[3]);
+					Coordenador coordenador = controle.criarUsuarioCoordenador(acoordenador[0], acoordenador[1], acoordenador[2], lab, acoordenador[3]);
 					controle.adicionarCoordenadordeLaboratorio(coordenador, lab);
 				}
 				break;
@@ -172,7 +172,7 @@ public class View {
 					while(!acesso2) {
 						System.out.println("Digite a senha de usuario padrão: ");
 						String senha = input.next();
-						acesso2 = controle.verificarChave(senha);
+						acesso2 = controle.verificarChaveDoAdministrador(senha);
 						
 						if(acesso2)
 							System.out.println("Acesso liberado.");
@@ -213,6 +213,31 @@ public class View {
 				}	
 				else if(op3 == 2) {
 					
+					boolean acesso2 = false;
+					int chances2 = 0;
+					while(!acesso2) {
+						System.out.println("Digite a senha do usuario padrão ou do Coordenador do Laboratório: ");
+						String senha = input.next();
+						acesso2 = controle.verificarChaveDoAdministrador(senha) || controle.verificarChaveDoCoordenador(senha,novo_laboratorio.getCoordenador());
+						
+						if(acesso2)
+							System.out.println("Acesso liberado.");
+						else {
+							chances2++;
+							System.out.println("senha incorreta.");
+							System.out.println("Acesso negado.");
+						}
+						if(chances2 == 3) {
+							System.out.println("Você chegou ao limite de tentativa de acessos.");
+							break;
+						}
+					}
+					if(chances2 == 3) 
+						break;
+					
+					
+					
+					
 					String[] novo_usuario2;
 					novo_usuario2 = cadastroUsuario();
 					
@@ -251,25 +276,20 @@ public class View {
 				}
 				break;
 			
-				
-				
-				
-				
 			case 5:
 				
 				if(controle.retornarAcessos().isEmpty())
 					System.out.println("Não há acessos nesse sistema...");
-				
-				
+				else {
 				System.out.println("ACESSOS: ");
 				for (int i = 0; i < controle.retornarAcessos().size(); i++) {
-					
 					System.out.println("Identificação: " + controle.retornarAcessos().get(i).getId());
 					System.out.println("Senha: " + controle.retornarAcessos().get(i).getSenha());
 					System.out.println("Status: " + controle.retornarAcessos().get(i).getStatus());
 					System.out.println("Data: " + controle.retornarAcessos().get(i).getData());
 					System.out.println("Hora: " + controle.retornarAcessos().get(i).getHora());
 					System.out.println(" --------------------------------------------------------");
+				}
 				}
 				
 				

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 public class Laboratorio {
 	private String nome;
 	private ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
-	private Usuario coordenador;
+	private Coordenador coordenador;
 	
 	public Laboratorio(String nome){
 		this.nome = nome;
@@ -28,7 +28,7 @@ public class Laboratorio {
 		return coordenador;
 	}
 	
-	public void setCoordenador(Usuario coordenador) {
+	public void setCoordenador(Coordenador coordenador) {
 		this.coordenador = coordenador;
 	} 
 }
