@@ -8,19 +8,17 @@ public class Controle {
 
 	private ArrayList<Laboratorio> laboratorios =  new ArrayList<Laboratorio>();
 	private ArrayList<Acesso> acessos = new ArrayList<Acesso>();
+	private ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
+	private ArrayList<Professor> professores = new ArrayList<Professor>();
 	private Adm padrao;
 	
 	Date data = new Date();
 	SimpleDateFormat formatarData = new SimpleDateFormat("dd/MM/yyyy");
 	SimpleDateFormat formatarHora = new SimpleDateFormat("HH:mm:ss");
 	
-	
-	
-	
 	public Controle(Adm padrao){
 		this.padrao = padrao;
 	}
-		
 		
 	public boolean acessar(String matricula, String chave, Laboratorio lab) {
 		boolean saida = false;	
@@ -29,7 +27,7 @@ public class Controle {
 					lab.getCoordenador().getMatricula().equalsIgnoreCase(matricula) && 
 					lab.getCoordenador().getSenha().equalsIgnoreCase(chave) ) {
 				
-				saida = true;	
+					saida = true;	
 				}	
 			}
 			
@@ -90,8 +88,6 @@ public class Controle {
 				return true;
 		return false;	
 	}
-	
-	
 	
 	public void adicionarLaboratorio(Laboratorio lab) {
 		laboratorios.add(lab);
