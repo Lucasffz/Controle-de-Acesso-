@@ -5,6 +5,7 @@ public class Acesso {
 	private String status;
 	private String data;
 	private String hora;
+	private Laboratorio laboratorio;
 	
 	public Acesso(String id, String senha, String status, String data, String hora) {
 		this.id = id;
@@ -54,8 +55,12 @@ public class Acesso {
 		this.hora = hora;
 	}
 
+	public void setLaboratorio(Laboratorio lab) {
+		this.laboratorio = lab;
+	}
 	
-	
-	
-
+	public Laboratorio getLaboratorio()
+	{
+		return this.laboratorio;
+	}
 }
