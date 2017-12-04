@@ -283,6 +283,7 @@ public class View {
 				else {
 					System.out.println("ACESSOS: ");
 					for (int i = 0; i < controle.retornarAcessos().size(); i++) {
+						System.out.println("Laboratório: " + controle.retornarAcessos().get(i).getLaboratorio().getNome());
 						System.out.println("Identificação: " + controle.retornarAcessos().get(i).getId());
 						System.out.println("Senha: " + controle.retornarAcessos().get(i).getSenha());
 						System.out.println("Status: " + controle.retornarAcessos().get(i).getStatus());
@@ -294,8 +295,6 @@ public class View {
 							
 			case 0:
 				break;
-			
-				
 				
 			default:
 				System.out.println("Opção inválida. ");
@@ -337,10 +336,10 @@ public class View {
 			boolean acesso = controle.acessar(matri, senha, laboratorio3);
 			if(acesso) {
 				System.out.println("Acesso liberado.");
-				controle.adcionarAcesso(matri, senha, "Positivo");
+				controle.adcionarAcesso(matri, senha, "Positivo", laboratorio3);
 			}
 			else {
-				controle.adcionarAcesso(matri, senha, "Negativo");
+				controle.adcionarAcesso(matri, senha, "Negativo", laboratorio3);
 				System.out.println("Acesso negado.");
 			}
 			
@@ -357,14 +356,6 @@ public class View {
 		
 		
 }
-		
-	
-		
-		
-		
-	
-	
-	
 	
 	static void entrada() {
 		System.out.println("1 - Entrar no laboratório. ");
