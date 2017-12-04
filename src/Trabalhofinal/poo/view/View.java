@@ -281,23 +281,17 @@ public class View {
 				if(controle.retornarAcessos().isEmpty())
 					System.out.println("Não há acessos nesse sistema...");
 				else {
-				System.out.println("ACESSOS: ");
-				for (int i = 0; i < controle.retornarAcessos().size(); i++) {
-					System.out.println("Identificação: " + controle.retornarAcessos().get(i).getId());
-					System.out.println("Senha: " + controle.retornarAcessos().get(i).getSenha());
-					System.out.println("Status: " + controle.retornarAcessos().get(i).getStatus());
-					System.out.println("Data: " + controle.retornarAcessos().get(i).getData());
-					System.out.println("Hora: " + controle.retornarAcessos().get(i).getHora());
-					System.out.println(" --------------------------------------------------------");
+					System.out.println("ACESSOS: ");
+					for (int i = 0; i < controle.retornarAcessos().size(); i++) {
+						System.out.println("Identificação: " + controle.retornarAcessos().get(i).getId());
+						System.out.println("Senha: " + controle.retornarAcessos().get(i).getSenha());
+						System.out.println("Status: " + controle.retornarAcessos().get(i).getStatus());
+						System.out.println("Data: " + controle.retornarAcessos().get(i).getData());
+						System.out.println("Hora: " + controle.retornarAcessos().get(i).getHora());
+						System.out.println(" --------------------------------------------------------");
+					}
 				}
-				}
-				
-				
-				
-				
-				
-				
-				
+							
 			case 0:
 				break;
 			

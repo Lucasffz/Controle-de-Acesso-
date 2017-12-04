@@ -25,7 +25,10 @@ public class Controle {
 	public boolean acessar(String matricula, String chave, Laboratorio lab) {
 		boolean saida = false;	
 		for (int i = 0; i < lab.getUsuarios().size(); i++) {
-			if(matricula.equals(lab.getUsuarios().get(i).getMatricula()) && chave.equals(lab.getUsuarios().get(i).getSenha()) ) {
+			if(matricula.equals(lab.getUsuarios().get(i).getMatricula()) && chave.equals(lab.getUsuarios().get(i).getSenha()) ||
+					lab.getCoordenador().getMatricula().equalsIgnoreCase(matricula) && 
+					lab.getCoordenador().getSenha().equalsIgnoreCase(chave) ) {
+				
 				saida = true;	
 				}	
 			}
