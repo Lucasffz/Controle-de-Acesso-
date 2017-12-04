@@ -100,7 +100,7 @@ public class Controle {
 	public void adcionarAcesso(String id,String senha,String status, Laboratorio laboratorio) {
 		String dataAtual = formatarData.format(data);
 		String hora = formatarHora.format(data);
-		Acesso acesso = new Acesso(id,senha,status,dataAtual,hora, laboratorio);
+		Acesso acesso = new Acesso(id,senha,status,dataAtual,hora,laboratorio);
 		acessos.add(acesso);
 	}
 	

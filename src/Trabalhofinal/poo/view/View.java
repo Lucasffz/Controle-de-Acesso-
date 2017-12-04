@@ -309,7 +309,7 @@ public class View {
 				continue;
 				
 			}
-			Laboratorio laboratorio3 = null;
+			Laboratorio laboratorio = null;
 			while(true) {
 			System.out.println("Laboratório: ");
 			String labo = input.next();
@@ -318,7 +318,7 @@ public class View {
 			boolean encontrou = false;
 			for (int i = 0; i < controle.retornarLaboratorios().size(); i++) {
 				if(controle.retornarLaboratorios().get(i).getNome().equalsIgnoreCase(labo)) {
-					laboratorio3 = controle.retornarLaboratorios().get(i);
+					laboratorio = controle.retornarLaboratorios().get(i);
 					encontrou = true;
 				}
 			}
@@ -333,14 +333,14 @@ public class View {
 			String matri = input.next();
 			System.out.print("Digite a senha: ");
 			String senha = input.next();
-			boolean acesso = controle.acessar(matri, senha, laboratorio3);
+			boolean acesso = controle.acessar(matri, senha, laboratorio);
 			if(acesso) {
 				System.out.println("Acesso liberado.");
-				controle.adcionarAcesso(matri, senha, "Positivo", laboratorio3);
+				controle.adcionarAcesso(matri, senha, "Positivo", laboratorio);
 			}
 			else {
-				controle.adcionarAcesso(matri, senha, "Negativo", laboratorio3);
 				System.out.println("Acesso negado.");
+				controle.adcionarAcesso(matri, senha, "Negativo", laboratorio);
 			}
 			
 			

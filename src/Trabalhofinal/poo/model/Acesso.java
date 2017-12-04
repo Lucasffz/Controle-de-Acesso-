@@ -13,6 +13,7 @@ public class Acesso {
 		this.status = status;
 		this.data = data;
 		this.hora = hora;
+		this.laboratorio = laboratorio;
 	}
 
 	public String getId() {
