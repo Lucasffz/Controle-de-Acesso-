@@ -7,7 +7,7 @@ public class Acesso {
 	private String hora;
 	private Laboratorio laboratorio;
 	
-	public Acesso(String id, String senha, String status, String data, String hora) {
+	public Acesso(String id, String senha, String status, String data, String hora, Laboratorio laboratorio ) {
 		this.id = id;
 		this.senha = senha;
 		this.status = status;
