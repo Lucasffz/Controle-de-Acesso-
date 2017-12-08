@@ -34,7 +34,7 @@ public class View {
 		Adm padrao = new Adm();
 		
 		
-		System.out.println("Criar usuario padrão: ");
+		System.out.print("Criar usuario padrão, ");
 		System.out.println("Digite o nome do usuário: ");
 		String namep = input.nextLine();
 		padrao.setNome(namep);
@@ -277,12 +277,38 @@ public class View {
 				break;
 			
 			case 5:
-				
+				acesso = false;
+				chances = 0;
+				while(!acesso) {
+					System.out.println("Digite a senha de usuario padrão: ");
+					String senha = input.next();
+					acesso = controle.verificarChaveDoAdministrador(senha);
+					
+					if(acesso)
+						System.out.println("Acesso liberado.");
+					else {
+						chances++;
+						System.out.println("senha incorreta.");
+						System.out.println("Acesso negado.");
+					}
+					if(chances == 3) {
+						System.out.println("Você chegou ao limite de tentativa de acessos.");
+						break;
+					}
+				}
+				if(chances == 3) {
+					break;
+				}
+			
 				if(controle.retornarAcessos().isEmpty())
 					System.out.println("Não há acessos nesse sistema...");
 				else {
 					System.out.println("ACESSOS: ");
 					for (int i = 0; i < controle.retornarAcessos().size(); i++) {
+						
+						if(controle.retornarAcessos().get(i).getStatus().equalsIgnoreCase("Negativo")) {
+						
+						
 						System.out.println("Laboratório: " + controle.retornarAcessos().get(i).getLaboratorio().getNome());
 						System.out.println("Identificação: " + controle.retornarAcessos().get(i).getId());
 						System.out.println("Senha: " + controle.retornarAcessos().get(i).getSenha());
@@ -290,6 +316,20 @@ public class View {
 						System.out.println("Data: " + controle.retornarAcessos().get(i).getData());
 						System.out.println("Hora: " + controle.retornarAcessos().get(i).getHora());
 						System.out.println(" --------------------------------------------------------");
+						}
+						
+						
+						else {
+							System.out.println("Laboratório: " + controle.retornarAcessos().get(i).getLaboratorio().getNome());
+							System.out.println("Identificação: " + controle.retornarAcessos().get(i).getId());
+							System.out.println("Senha: " + "********");
+							System.out.println("Status: " + controle.retornarAcessos().get(i).getStatus());
+							System.out.println("Data: " + controle.retornarAcessos().get(i).getData());
+							System.out.println("Hora: " + controle.retornarAcessos().get(i).getHora());
+							System.out.println(" --------------------------------------------------------");
+							
+						}
+						
 					}
 				}
 							
@@ -351,9 +391,8 @@ public class View {
 			break;
 		}
 		
-		
+
 		}
-		
 		
 }
 	

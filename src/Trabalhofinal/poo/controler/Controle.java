@@ -12,9 +12,9 @@ public class Controle {
 	private ArrayList<Professor> professores = new ArrayList<Professor>();
 	private Adm padrao;
 	
-	Date data = new Date();
-	SimpleDateFormat formatarData = new SimpleDateFormat("dd/MM/yyyy");
-	SimpleDateFormat formatarHora = new SimpleDateFormat("HH:mm:ss");
+	Date data;
+	SimpleDateFormat formatarData;
+	SimpleDateFormat formatarHora;
 	
 	public Controle(Adm padrao){
 		this.padrao = padrao;
@@ -98,6 +98,10 @@ public class Controle {
 	}
 	
 	public void adcionarAcesso(String id,String senha,String status, Laboratorio laboratorio) {
+
+		data = new Date();
+		SimpleDateFormat formatarData = new SimpleDateFormat("dd/MM/yyyy");
+		SimpleDateFormat formatarHora = new SimpleDateFormat("HH:mm:ss");
 		String dataAtual = formatarData.format(data);
 		String hora = formatarHora.format(data);
 		Acesso acesso = new Acesso(id,senha,status,dataAtual,hora,laboratorio);
