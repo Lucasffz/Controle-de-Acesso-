@@ -393,6 +393,7 @@ public class View {
 		System.out.println("5 - Listar Acessos. ");
 		System.out.println("6 - Excluir Usuário de um laboratório. ");
 		System.out.println("7 - Excluir laboratório.");
+		
 		System.out.println("0 - voltar.");
 	}
 	

@@ -112,6 +112,35 @@ public class Controle {
 		return acessos;
 	}
 	
+	public int excluirUsuario(String nome_lab, String nome) {
+		boolean encontrou_lab  = false;
+		boolean encontrou_nome = false;
+		for (int i = 0; i < laboratorios.size(); i++) {
+			
+			if(laboratorios.get(i).getNome().equalsIgnoreCase(nome_lab)) {
+				encontrou_lab = true;
+				
+				for (int j = 0; j < laboratorios.get(i).getUsuarios().size(); j++) {
+					if(laboratorios.get(i).getUsuarios().get(j).getNome().equalsIgnoreCase(nome)) {
+						laboratorios.get(i).getUsuarios().remove(j);
+						encontrou_nome = true;
+						
+					}
+					
+				}
+				
+				
+			}
+		}
+		if(!encontrou_lab)
+			return 1;
+		
+		if(!encontrou_nome)
+			return 2;
+		
+		return 0;
+	}
+	
 	
 	
 	
