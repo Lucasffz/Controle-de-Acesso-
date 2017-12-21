@@ -430,10 +430,19 @@ public class View {
 		System.out.println("Curso:");
 		String novo_curso = input.nextLine();
 		cadastro[2] = novo_curso;
-		System.out.println("Digite a nova senha:");
-		String nova_senha = input.nextLine();
+		String nova_senha = "";
+		while(true) {
+			System.out.println("Digite a nova senha:");
+			nova_senha = input.nextLine();
+			System.out.println("Confirme a senha digitada:");
+			String confirmar = input.nextLine();
+			if(nova_senha.equalsIgnoreCase(confirmar)) {
+				break;
+			}
+			else
+				System.out.println("Senhas digitadas não conhecidem.");
+		}
 		cadastro[3] = nova_senha;
-
 		
 		return cadastro;
 	 
