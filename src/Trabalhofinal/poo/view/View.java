@@ -6,7 +6,7 @@ import Trabalhofinal.poo.controler.*;
 
 public class View {
 
-
+	//a exclusão deve ser por matrícula e não por nome;
 
 	public static void main(String[] args) {
 
@@ -88,6 +88,11 @@ public class View {
 					
 					Coordenador coordenador = controle.criarUsuarioCoordenador(acoordenador[0], acoordenador[1], acoordenador[2], lab, acoordenador[3]);
 					controle.adicionarCoordenadordeLaboratorio(coordenador, lab);
+					
+					
+					System.out.println("Coordenador adicionado ao laboratório com sucesso.");
+					System.out.println();
+					
 				}
 				break;
 				
@@ -349,11 +354,11 @@ public class View {
 				System.out.println("Laboratório: ");
 				System.out.println(">>");
 				String la = input.nextLine();
-				System.out.println("Nome do usuário: ");
+				System.out.println("Matrícula do usuário: ");
 				System.out.println(">>");
-				String n = input.nextLine();
+				String ma = input.nextLine();
 				
-				int saida = controle.excluirUsuario(la, n);
+				int saida = controle.excluirUsuario(la, ma);
 				if(saida == 0) {
 					System.out.println("Usuário excluído com sucesso.");
 				}
@@ -363,10 +368,7 @@ public class View {
 				else
 					System.out.println("Usuário não encontrado no laboratório " + la + ".");
 				
-				
-				
-				
-				
+				break;
 				
 			case 0:
 				break;

@@ -112,7 +112,7 @@ public class Controle {
 		return acessos;
 	}
 	
-	public int excluirUsuario(String nome_lab, String nome) {
+	public int excluirUsuario(String nome_lab, String matricula) {
 		boolean encontrou_lab  = false;
 		boolean encontrou_nome = false;
 		for (int i = 0; i < laboratorios.size(); i++) {
@@ -121,7 +121,7 @@ public class Controle {
 				encontrou_lab = true;
 				
 				for (int j = 0; j < laboratorios.get(i).getUsuarios().size(); j++) {
-					if(laboratorios.get(i).getUsuarios().get(j).getNome().equalsIgnoreCase(nome)) {
+					if(laboratorios.get(i).getUsuarios().get(j).getMatricula().equalsIgnoreCase(matricula)) {
 						laboratorios.get(i).getUsuarios().remove(j);
 						encontrou_nome = true;	
 					}	
