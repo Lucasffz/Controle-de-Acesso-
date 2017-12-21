@@ -6,35 +6,17 @@ import Trabalhofinal.poo.controler.*;
 
 public class View {
 
-	private static ArrayList<Professor> professores = new ArrayList<Professor>();
-	private static ArrayList<Aluno> alunos = new ArrayList<Aluno>();
-	private static ArrayList<Laboratorio> laboratorios = new ArrayList<Laboratorio>();
+
 
 	public static void main(String[] args) {
-
-		// // Exemplo com novo fluxo de classes
-		// Laboratorio laboratorio = new Laboratorio();
-		// Professor professor = new Professor();
-		// Aluno aluno = new Aluno();
-
-		// aluno.setNome("Fulano");
-		// professor.setNome("PlÃ¡cido");
-
-		// professores.add(professor);
-		// alunos.add(aluno);
-		// laboratorios.add(laboratorio);
-
-		// laboratorios.get(0).setUsuario(alunos.get(0));
-
-		// System.out.println(laboratorios.get(0).getUsuario(alunos.get(0)));
 
 		Scanner input = new Scanner(System.in);
 		
 		
 		Adm padrao = new Adm();
 		
-		
-		System.out.print("Criar usuario padrão, ");
+		System.out.println("Programa rodando pela primeira vez...");
+		System.out.println("é necessário criar o usuário administrador.");
 		System.out.println("Digite o nome do usuário: ");
 		String namep = input.nextLine();
 		padrao.setNome(namep);
@@ -409,6 +391,8 @@ public class View {
 		System.out.println("3 - Adicionar membros a um laborátorio.");
 		System.out.println("4 - listar usuários de um laboratório.  ");
 		System.out.println("5 - Listar Acessos. ");
+		System.out.println("6 - Excluir Usuário de um laboratório. ");
+		System.out.println("7 - Excluir laboratório.");
 		System.out.println("0 - voltar.");
 	}
 	
