@@ -123,12 +123,9 @@ public class Controle {
 				for (int j = 0; j < laboratorios.get(i).getUsuarios().size(); j++) {
 					if(laboratorios.get(i).getUsuarios().get(j).getNome().equalsIgnoreCase(nome)) {
 						laboratorios.get(i).getUsuarios().remove(j);
-						encontrou_nome = true;
-						
-					}
-					
+						encontrou_nome = true;	
+					}	
 				}
-				
 				
 			}
 		}

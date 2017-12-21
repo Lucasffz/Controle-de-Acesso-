@@ -314,7 +314,60 @@ public class View {
 						
 					}
 				}
-							
+				
+				
+				
+				
+			case 6:
+				
+				boolean acesso2 = false;
+				int chances2 = 0;
+				while(!acesso2) {
+					System.out.println("Digite a senha de usuario padrão: ");
+					String senha = input.next();
+					acesso2 = controle.verificarChaveDoAdministrador(senha);
+					
+					if(acesso2)
+						System.out.println("Acesso liberado.");
+					else {
+						chances2++;
+						System.out.println("senha incorreta.");
+						System.out.println("Acesso negado.");
+					}
+					if(chances2 == 3) {
+						System.out.println("Você chegou ao limite de tentativa de acessos.");
+						break;
+					}
+				}
+				if(chances2 == 3) 
+					break;
+				
+				
+				
+				
+				
+				System.out.println("Laboratório: ");
+				System.out.println(">>");
+				String la = input.nextLine();
+				System.out.println("Nome do usuário: ");
+				System.out.println(">>");
+				String n = input.nextLine();
+				
+				int saida = controle.excluirUsuario(la, n);
+				if(saida == 0) {
+					System.out.println("Usuário excluído com sucesso.");
+				}
+				else if(saida == 1) {
+					System.out.println("Laboratório não encontrado.");
+				}
+				else
+					System.out.println("Usuário não encontrado no laboratório " + la + ".");
+				
+				
+				
+				
+				
+				
 			case 0:
 				break;
 				
