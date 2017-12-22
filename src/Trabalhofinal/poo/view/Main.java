@@ -4,10 +4,9 @@ import java.util.Scanner;
 import Trabalhofinal.poo.model.*;
 import Trabalhofinal.poo.controler.*;
 
-public class View {
+public class Main {
 
-	//a exclusão deve ser por matrícula e não por nome;
-
+	
 	public static void main(String[] args) {
 
 		Scanner input = new Scanner(System.in);
@@ -20,9 +19,24 @@ public class View {
 		System.out.println("Digite o nome do usuário: ");
 		String namep = input.nextLine();
 		padrao.setNome(namep);
-		System.out.println("Digite a senha do usuário padrão: ");
-		String chavep = input.nextLine();
-		padrao.setSenha(chavep);
+		String nova_senha ="";
+		while(true) {
+			System.out.println("Digite a nova senha:");
+			nova_senha = input.nextLine();
+			System.out.println("Confirme a senha digitada:");
+			String confirmar = input.nextLine();
+			if(nova_senha.equalsIgnoreCase(confirmar)) {
+				break;
+			}
+			else
+				System.out.println("Senhas digitadas não coincidem.");
+		}
+		
+		
+		
+		padrao.setSenha(nova_senha);
+		System.out.println("Adiministrador adicionado.");
+		
 		
 		Controle controle = new Controle(padrao);
 		
