@@ -125,8 +125,7 @@ public class Controle {
 						laboratorios.get(i).getUsuarios().remove(j);
 						encontrou_nome = true;	
 					}	
-				}
-				
+				}		
 			}
 		}
 		if(!encontrou_lab)
@@ -138,7 +137,15 @@ public class Controle {
 		return 0;
 	}
 	
-	
+	public int excluirLaboratorio(String nome_lab) {
+		for (int i = 0; i < laboratorios.size(); i++) {
+			if(laboratorios.get(i).getNome().equalsIgnoreCase(nome_lab)) {
+				laboratorios.remove(i);
+				return 1;
+			}
+		}
+		return 0;
+	}
 	
 	
 }

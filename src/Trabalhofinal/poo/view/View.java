@@ -325,38 +325,33 @@ public class View {
 				
 			case 6:
 				
-				boolean acesso2 = false;
-				int chances2 = 0;
-				while(!acesso2) {
+				boolean acesso6 = false;
+				int chances6 = 0;
+				while(!acesso6) {
 					System.out.println("Digite a senha de usuario padrão: ");
 					String senha = input.next();
-					acesso2 = controle.verificarChaveDoAdministrador(senha);
+					acesso6 = controle.verificarChaveDoAdministrador(senha);
 					
-					if(acesso2)
+					if(acesso6)
 						System.out.println("Acesso liberado.");
 					else {
-						chances2++;
+						chances6++;
 						System.out.println("senha incorreta.");
 						System.out.println("Acesso negado.");
 					}
-					if(chances2 == 3) {
+					if(chances6 == 3) {
 						System.out.println("Você chegou ao limite de tentativa de acessos.");
 						break;
 					}
 				}
-				if(chances2 == 3) 
+				if(chances6 == 3) 
 					break;
 				
 				
-				
-				
-				
-				System.out.println("Laboratório: ");
-				System.out.println(">>");
-				String la = input.nextLine();
-				System.out.println("Matrícula do usuário: ");
-				System.out.println(">>");
-				String ma = input.nextLine();
+				System.out.println("Laboratório:");
+				String la = input.next();
+				System.out.println("Matrícula do usuário:");
+				String ma = input.next();
 				
 				int saida = controle.excluirUsuario(la, ma);
 				if(saida == 0) {
@@ -370,6 +365,39 @@ public class View {
 				
 				break;
 				
+				
+			case 7:
+				boolean acesso7 = false;
+				int chances7 = 0;
+				while(!acesso7) {
+					System.out.println("Digite a senha de usuario padrão: ");
+					String senha = input.next();
+					acesso7 = controle.verificarChaveDoAdministrador(senha);
+					
+					if(acesso7)
+						System.out.println("Acesso liberado.");
+					else {
+						chances7++;
+						System.out.println("senha incorreta.");
+						System.out.println("Acesso negado.");
+					}
+					if(chances7 == 3) {
+						System.out.println("Você chegou ao limite de tentativa de acessos.");
+						break;
+					}
+				}
+				if(chances7 == 3) 
+					break;
+				
+				System.out.print("Laboratório:");
+				String lab7 = input.next();
+				int resultado = controle.excluirLaboratorio(lab7);
+				if(resultado == 1) 
+					System.out.println("Laboratório excluído com sucesso.");
+				else
+					System.out.println("Laboratório não encontrado.");
+		
+				break;			
 			case 0:
 				break;
 				
@@ -405,6 +433,7 @@ public class View {
 			else
 				System.out.println("Laboratório não encontrado.");
 			}
+			System.out.println();
 				
 			System.out.print("Digite a matrícula: ");
 			String matri = input.next();
@@ -487,5 +516,9 @@ public class View {
 		return cadastro;
 	 
 	}
+	
+	
+	
+	
 	
 }
