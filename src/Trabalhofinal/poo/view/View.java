@@ -321,7 +321,7 @@ public class View {
 				}
 				
 				
-				
+				break;
 				
 			case 6:
 				
@@ -509,7 +509,7 @@ public class View {
 				break;
 			}
 			else
-				System.out.println("Senhas digitadas não conhecidem.");
+				System.out.println("Senhas digitadas não coincidem.");
 		}
 		cadastro[3] = nova_senha;
 		
